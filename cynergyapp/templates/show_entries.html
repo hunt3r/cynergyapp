@@ -2,17 +2,6 @@
 {% block body %}
 
 
-  <table class=entries>
-  {% for entry in entries %}
-    <tr>
-        <td>{{ entry.name }}</td>
-        <td>{{ entry.type }}</td>
-        <td>{{ entry.library }}</td>
-        <td>{{ entry.from_buss }}</td>
-        <td>{{ entry.to_buss }}</td>
-        <td>{{ entry.length }}</td>
-        <td>{{ entry.ampacity }}</td>
-    </tr>
-  {% endfor %}
-  </table>
+  <table class="entries"></table>
+  <div id="pager"></div>
 {% endblock %}

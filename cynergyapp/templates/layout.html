@@ -1,10 +1,20 @@
 <!doctype html>
 <html>
     <head>
-        <title>CynergyApp, Example MVC, jQuery app</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/ui-darkness/jquery-ui-1.8.14.custom.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
+        <title>CynergyApp, Online...</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+        
+        <style type="text/css" media="screen">
+            @import url("{{ url_for('static', filename='css/ui-lightness/jquery-ui-1.8.14.custom.css') }}");
+            @import url("{{ url_for('static', filename='css/ui.jqgrid.css') }}");
+            @import url("{{ url_for('static', filename='css/style.css') }}");
+        </style>
+
+        <script src="{{ url_for('static', filename='js/jquery-1.5.2.min.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/jquery.jqGrid.min.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/jquery-ui-1.8.14.custom.min.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/cynergy.custom.js') }}" type="text/javascript" charset="utf-8"></script>
+        
     </head>
     <body>
         <div class="page">
@@ -14,10 +24,11 @@
                     <h1>CynergyApp</h1> 
                 </div>
                 <div class="header-inner">
-                    <ul>
+                    <ul class="nav">
                         <li><a href="{{ url_for('home') }}">Home</a></li>
-                        <li><a href="{{ url_for('add_entry') }}">Add Entry</a></li>
+                        <li><a href="{{ url_for('entry_add_form') }}">Add Entry</a></li>
                     </ul>
+                    <div class="clear">&nbsp;</div>
                 </div>
             </div>
     
@@ -27,12 +38,16 @@
                   <div class=flash>{{ message }}</div>
                 {% endfor %}
             </div>
+            
+            <!--This is the main view content -->
             <div class="inner body">
-            <!--This is the main view content -->  
-            {% block body %}{% endblock %}
+                <div class="body-inner">
+                    {% block body %}{% endblock %}
+                </div>
             </div>
             <!-- Footer -->
             <div class="inner footer">
+              Example MVC, jQuery app, using the lightweight Flask Python Framework <br />
               This is a Chris Hunter Sunday afternoon, Beer in hand
             </div>
         </div>

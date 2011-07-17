@@ -31,4 +31,4 @@ class Entry(Base):
         
 
     def __repr__(self):
-        return '<Entry %r>' % (self.name)
+        return self.name

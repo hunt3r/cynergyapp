@@ -1,14 +1,35 @@
 {% extends "layout.html" %}
 {% block body %}
+    <h2>{{ title }} Entry</h2>
+    <div class="form">
+        <form action="{{ url_for('add_entry') }}" method="POST" class=add-entry>
 
-    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
-      <dl>
-        <dt>Title:
-        <dd><input type=text size=30 name=title>
-        <dt>Text:
-        <dd><textarea name=text rows=5 cols=40></textarea>
-        <dd><input type=submit value=Share>
-      </dl>
-    </form>
-
+            <label>Name:</label>
+            <input type=text size=30 name="name">
+        
+            <label>Type:</label>
+            <select name="type">
+                  {% for type in types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                  {% endfor %}
+                </select>
+        
+            <label>Library:</label>
+            <input type=text size=30 name=library>
+        
+            <label>From Buss:</label>
+            <input type=text size=30 name="from_buss">
+        
+            <label>To Buss:</label>
+            <input type=text size=30 name="to_buss">
+        
+            <label>length:</label>
+            <input type=text size=30 name="length">
+        
+            <label>ampacity:</label>
+            <input type=text size=30 name="ampacity">
+        
+            <input type=submit value=Submit>
+        </form>
+    </div>
 {% endblock %}
