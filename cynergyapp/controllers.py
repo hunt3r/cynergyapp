@@ -70,6 +70,7 @@ def add_entry():
                   request.form['ampacity'])
     db_session.add(entry)
     db_session.commit()
+    flash('You have successfully added a new Entry (%s)!  Good Job Buddy!' % entry.name)
     return redirect(url_for('home'))
     
 # Get the add form

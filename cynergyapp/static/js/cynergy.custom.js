@@ -8,11 +8,11 @@ $(document).ready(function(){
        	colModel:[
        		{name:'name',index:'name', width:90},
        		{name:'type',index:'type', width:80, align:"right"},
-       		{name:'library',index:'library', width:80, align:"right"},		
-       		{name:'from_buss',index:'from_buss', width:80,align:"right"},		
-       		{name:'to_buss',index:'to_buss', width:80, sortable:false},
-       		{name:'length',index:'length', width:80,align:"right"},		
-       		{name:'ampacity',index:'ampacity', width:80, sortable:false}
+       		{name:'library',index:'library', width:80, align:"center"},		
+       		{name:'from_buss',index:'from_buss', width:80,align:"center"},		
+       		{name:'to_buss',index:'to_buss', width:80, sortable:false, align:"center"},
+       		{name:'length',index:'length', width:80,align:"center"},		
+       		{name:'ampacity',index:'ampacity', width:80, sortable:false,align:"center"}
        	],
        	rowNum:10,
        	rowList:[10,20,30],
@@ -21,7 +21,10 @@ $(document).ready(function(){
         viewrecords: true,
         width: '905',
         sortorder: "desc",
-        caption:"Entries"
+        caption:"Entries",
+        onSelectRow: function(id) {
+          $('#entries').editRow(id, true); 
+        },
     });
     
     $("#entries").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
