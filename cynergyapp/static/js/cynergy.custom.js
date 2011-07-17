@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(".entries").jqGrid({
        	url:'/_get_entries',
     	datatype: "json",
-       	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+       	colNames:['id','name', 'type', 'library','from_buss','to_buss'],
        	colModel:[
        		{name:'id',index:'id', width:55},
        		{name:'name',index:'name', width:90},
@@ -18,7 +18,7 @@ $(document).ready(function(){
        	sortname: 'id',
         viewrecords: true,
         sortorder: "desc",
-        caption:"JSON Example"
+        caption:"Entries"
     });
     $(".entries").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
 

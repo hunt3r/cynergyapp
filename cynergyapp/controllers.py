@@ -5,6 +5,10 @@ from cynergyapp import app
 from cynergyapp.database import db_session
 from cynergyapp.models import Entry
 
+def dump(obj):
+  for attr in dir(obj):
+    print "obj.%s = %s" % (attr, getattr(obj, attr))
+
 """
     Controller Helper methods
 """
@@ -25,10 +29,8 @@ def get_types_as_JSON():
 
 @app.route('/_get_entries', methods=['GET'])
 def update_entry():
-    for entry in Entry.query.all()
-        print entry
+    dump(Entry.query.all())
     return '{"test1", "test2"}'
-
 
 
 """
