@@ -14,14 +14,17 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 # Custom modules declarations
 #from modules.database import db
 # Model declarations
-from models.entry import Entry
-
+import database
+from database import db_session
 
 # create our little application :)
 app = Flask(__name__)
 app.config.from_pyfile('configuration.cfg')
 
-print app.config['DATABASE']
+
+@app.teardown_request
+def shutdown_session(exception=None):
+    db_session.remove()
 
 
 if __name__ == '__main__':

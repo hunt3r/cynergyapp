@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from cynergyapp.modules.database import Base
+from database import Base
 
 class Entry(Base):
     __tablename__ = 'entries'
