@@ -1,18 +1,40 @@
 <!doctype html>
-<title>Flaskr</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-
-<div class=page>
-  <h1>Flaskr</h1>
-  <div class=metanav>
-  {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">log in</a>
-  {% else %}
-    <a href="{{ url_for('logout') }}">log out</a>
-  {% endif %}
-  </div>
-  {% for message in get_flashed_messages() %}
-    <div class=flash>{{ message }}</div>
-  {% endfor %}
-  {% block body %}{% endblock %}
-</div>
+<html>
+    <head>
+        <title>CynergyApp, Example MVC, jQuery app</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/ui-darkness/jquery-ui-1.8.14.custom.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <div class="page">
+            <!-- header container -->
+            <div class="inner header">
+                <div class="header-inner">
+                    <h1>CynergyApp</h1> 
+                </div>
+                <div class="header-inner">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('add_entry') }}">Add Entry</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- any return messages we may want to display -->
+            <div class="inner messages">
+                {% for message in get_flashed_messages() %}
+                  <div class=flash>{{ message }}</div>
+                {% endfor %}
+            </div>
+            <div class="inner body">
+            <!--This is the main view content -->  
+            {% block body %}{% endblock %}
+            </div>
+            <!-- Footer -->
+            <div class="inner footer">
+              This is a Chris Hunter Sunday afternoon, Beer in hand
+            </div>
+        </div>
+    </body>
+</html>
