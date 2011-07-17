@@ -19,7 +19,7 @@ $(document).ready(function(){
        	pager: '#pager',
        	sortname: 'id',
         viewrecords: true,
-        width: '900',
+        width: '905',
         sortorder: "desc",
         caption:"Entries"
     });
