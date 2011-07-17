@@ -21,9 +21,6 @@ def getTypes():
 # return a dictionary for an entry object, 
 # this was just a quick work around, not familiar with flask DAO so much
 def getEntryAsDictionary(_entry):
-    """return { 'id': _entry.id, 'name' : _entry.name, 'type': _entry.type, 'library': _entry.library, 
-                'from_buss' : _entry.from_buss, 'to_buss': _entry.to_buss, 'length': _entry.length, 'ampacity': _entry.ampacity }
-    """
     return { "id": _entry.id, "cell" : [_entry.name, _entry.type, _entry.library, 
                     _entry.from_buss, _entry.to_buss, _entry.length, _entry.ampacity]}
 

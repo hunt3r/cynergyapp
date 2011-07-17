@@ -1,12 +1,11 @@
 $(document).ready(function(){
     
     //Construct a jqGrid object
-    $(".entries").jqGrid({
+    $("#entries").jqGrid({
        	url:'/_get_entries',
     	datatype: "json",
-       	colNames:['id','name', 'type', 'library','from_buss','to_buss', 'length', 'ampacity'],
+       	colNames:['name', 'type', 'library','from_buss','to_buss', 'length', 'ampacity'],
        	colModel:[
-       		{name:'id',index:'id', width:55},
        		{name:'name',index:'name', width:90},
        		{name:'type',index:'type', width:80, align:"right"},
        		{name:'library',index:'library', width:80, align:"right"},		
@@ -15,19 +14,20 @@ $(document).ready(function(){
        		{name:'length',index:'length', width:80,align:"right"},		
        		{name:'ampacity',index:'ampacity', width:80, sortable:false}
        	],
-       	jsonReader: {
-    		repeatitems : false,
-    		id: "0"
-    	},
+        jsonReader: {
+          userdata: "userdata",
+        },
        	rowNum:10,
        	rowList:[10,20,30],
        	pager: '#pager',
        	sortname: 'id',
+       	loadui: 'disable',
         viewrecords: true,
         sortorder: "desc",
         caption:"Entries"
     });
-    $(".entries").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+    
+    $("#entries").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
 
     $(function() {
         $( "input:submit, a, button", ".page" ).button();

@@ -33,12 +33,9 @@ h2              { font-size: 1.2em; }
 /* some datatable overrides, 
 probably should revisit this later
 */
-.dataTables_info { padding-top: 0; }
-.dataTables_paginate { padding-top: 0; }
-.css_right { float: right; }
-.entries .fg-toolbar { font-size: 0.8em }
-#theme_links span { float: left; padding: 2px 10px; }
-
+.ui-jqgrid {
+    width: 100%;
+}
 /* 
     Forms
 */
