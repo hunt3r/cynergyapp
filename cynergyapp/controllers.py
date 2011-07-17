@@ -24,7 +24,7 @@ def getEntryAsDictionary(_entry):
     """return { 'id': _entry.id, 'name' : _entry.name, 'type': _entry.type, 'library': _entry.library, 
                 'from_buss' : _entry.from_buss, 'to_buss': _entry.to_buss, 'length': _entry.length, 'ampacity': _entry.ampacity }
     """
-    return { _entry.id : [_entry.name, _entry.type, _entry.library, 
+    return { "id": _entry.id, "cell" : [_entry.name, _entry.type, _entry.library, 
                     _entry.from_buss, _entry.to_buss, _entry.length, _entry.ampacity]}
 
 """

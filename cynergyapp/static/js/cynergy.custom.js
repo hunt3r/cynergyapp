@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     //Construct a jqGrid object
     $(".entries").jqGrid({
        	url:'/_get_entries',
