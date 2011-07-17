@@ -7,6 +7,6 @@ as a demonstration of rapid development and core backend and UI concepts
 edit config.cfg and change your database path to match your environment
 
 ## Requires
-simplejson
-Flask-SqlAlchemy 
-http://pypi.python.org/pypi/Flask-SQLAlchemy
+* simplejson
+* Flask-SqlAlchemy 
+* http://pypi.python.org/pypi/Flask-SQLAlchemy
