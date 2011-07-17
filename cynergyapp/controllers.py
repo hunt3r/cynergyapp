@@ -39,7 +39,6 @@ def update_entry():
     for _entry in _entries:
         entries.append(getEntryAsDictionary(_entry))
         
-    dump(entries)
     return jsonify(entries = entries)
 
 
