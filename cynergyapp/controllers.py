@@ -17,10 +17,13 @@ def dump(obj):
 def getTypes():
     return ['Type 1', 'Type 2', 'Type 3']
 
-
+# return a dictionary for an entry object
+def getEntryAsDictionary(_entry):
+    return { 'name' : _entry.name}
+    
 
 """
-    JSON Controllers
+    JSON Controller
 """
 @app.route('/_get_types', methods=['GET'])
 def get_types_as_JSON():
@@ -29,8 +32,13 @@ def get_types_as_JSON():
 
 @app.route('/_get_entries', methods=['GET'])
 def update_entry():
-    dump(Entry.query.all())
-    return '{"test1", "test2"}'
+    _entries = Entry.query.all()
+    entries = []
+    for _entry in _entries:
+        entries.append(getEntryAsDictionary(_entry))
+        
+    dump(entries)
+    return jsonify(entries = entries)
 
 
 """
