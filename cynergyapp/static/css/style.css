@@ -24,12 +24,16 @@ h2              { font-size: 1.2em; }
 .clear { clear: both;}
 
 /* header */
-.header .nav li {
+#header .nav li {
     float: left;
     list-style:none;
     margin-right: .25em;
 }
 
+#footer {
+    font-size: .75em;
+    color: #ccc;
+}
 /* some datatable overrides, 
 probably should revisit this later
 */

@@ -14,15 +14,12 @@ $(document).ready(function(){
        		{name:'length',index:'length', width:80,align:"right"},		
        		{name:'ampacity',index:'ampacity', width:80, sortable:false}
        	],
-        jsonReader: {
-          userdata: "userdata",
-        },
        	rowNum:10,
        	rowList:[10,20,30],
        	pager: '#pager',
        	sortname: 'id',
-       	loadui: 'disable',
         viewrecords: true,
+        width: '900',
         sortorder: "desc",
         caption:"Entries"
     });

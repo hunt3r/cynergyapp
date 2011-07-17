@@ -11,7 +11,8 @@
         </style>
 
         <script src="{{ url_for('static', filename='js/jquery-1.5.2.min.js') }}" type="text/javascript" charset="utf-8"></script>
-        <script src="{{ url_for('static', filename='js/jquery.jqGrid.min.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/i18n/grid.locale-en.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/jquery.jqGrid.src.js') }}" type="text/javascript" charset="utf-8"></script>
         <script src="{{ url_for('static', filename='js/jquery-ui-1.8.14.custom.min.js') }}" type="text/javascript" charset="utf-8"></script>
         <script src="{{ url_for('static', filename='js/cynergy.custom.js') }}" type="text/javascript" charset="utf-8"></script>
         
@@ -19,7 +20,7 @@
     <body>
         <div class="page">
             <!-- header container -->
-            <div class="inner header">
+            <div id="header" class="inner">
                 <div class="header-inner">
                     <h1>CynergyApp</h1> 
                 </div>
@@ -46,7 +47,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            <div class="inner footer">
+            <div id="footer" class="inner">
               Example MVC, jQuery app, using the lightweight Flask Python Framework <br />
               This is a Chris Hunter Sunday afternoon, Beer in hand
             </div>
