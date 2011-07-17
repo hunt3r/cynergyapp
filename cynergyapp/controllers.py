@@ -17,9 +17,11 @@ def dump(obj):
 def getTypes():
     return ['Type 1', 'Type 2', 'Type 3']
 
+
 # return a dictionary for an entry object
 def getEntryAsDictionary(_entry):
-    return { 'name' : _entry.name}
+    return { 'id': _entry.id, 'name' : _entry.name, 'type': _entry.type, 'library': _entry.library, 
+                'from_buss' : _entry.from_buss, 'to_buss': _entry.to_buss, 'length': _entry.length, 'ampacity': _entry.ampacity }
     
 
 """
