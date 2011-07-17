@@ -1,0 +1,2 @@
+from cynergyapp import app
+
