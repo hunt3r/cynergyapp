@@ -1,20 +1,21 @@
 $(document).ready(function() {
     var lastSel;
-    var editoptions_types = (function () {
+    
+    //Get option values via ajax call to a service URL
+    function getOptions(url) {
         var list = null;
-
         $.ajax({
             'async': false,
             'global': false,
-            'url': '_get_types',
+            'url': url,
             'dataType': 'json',
             'success': function (data) {
-                list = data.types;
+                list = data;
             }
         });
 
         return list;
-    })();
+    }
     
     //Construct a jqGrid object
     $("#entries").jqGrid({
@@ -24,7 +25,7 @@ $(document).ready(function() {
        	colModel:[
        		{name:'name',index:'name', width:90, sortable:true, editable: true, editoptions:{size:"20",maxlength:"50"}},
        		{name:'type',index:'type', width:80, align:"right", editable: true, edittype:"select", 
-       		    editoptions: {value: editoptions_types}},
+       		    editoptions: {value: getOptions("_get_types").types}},
        		{name:'library',index:'library', width:80, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},		
        		{name:'from_buss',index:'from_buss', width:80, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},		
        		{name:'to_buss',index:'to_buss', width:80, sortable:false, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},
