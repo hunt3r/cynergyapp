@@ -25,4 +25,4 @@ def init_db():
 # Remove dbsessions at teardown
 @app.teardown_request
 def shutdown_session(exception=None):
-        db_session.remove()
+    db_session.remove()

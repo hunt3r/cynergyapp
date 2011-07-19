@@ -1,13 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function() {
     var lastSel;
+    var editoptions_types = (function () {
+        var list = null;
+
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': '_get_types',
+            'dataType': 'json',
+            'success': function (data) {
+                list = data.types;
+            }
+        });
+
+        return list;
+    })();
+    
     //Construct a jqGrid object
     $("#entries").jqGrid({
        	url:'/_get_entries',
     	datatype: "json",
        	colNames:['name', 'type', 'library','from_buss','to_buss', 'length', 'ampacity'],
        	colModel:[
-       		{name:'name',index:'name', width:90, editable: true, editoptions:{size:"20",maxlength:"50"}},
-       		{name:'type',index:'type', width:80, align:"right", editable: true, edittype:"select", editoptions:{value:"Type 1:Type 1;Type 2:Type 2;Type 3:Type 3"}},
+       		{name:'name',index:'name', width:90, sortable:true, editable: true, editoptions:{size:"20",maxlength:"50"}},
+       		{name:'type',index:'type', width:80, align:"right", editable: true, edittype:"select", 
+       		    editoptions: {value: editoptions_types}},
        		{name:'library',index:'library', width:80, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},		
        		{name:'from_buss',index:'from_buss', width:80, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},		
        		{name:'to_buss',index:'to_buss', width:80, sortable:false, editable: true, editoptions:{size:"20",maxlength:"50"}, align:"center"},
@@ -15,7 +32,7 @@ $(document).ready(function(){
        		{name:'ampacity',index:'ampacity', width:80, editable: true, editoptions:{size:"20",maxlength:"50"}, sortable:false,align:"center"}
        	],
        	rowNum:10,
-       	rowList:[10,20,30],
+       	rowList:[5,10,20],
        	pager: '#pager',
        	sortname: 'id',
         viewrecords: true,
@@ -31,7 +48,7 @@ $(document).ready(function(){
         },
     });
     
-    $("#entries").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+    $("#entries").jqGrid('navGrid','#pager',{edit:false,add:true,del:false});
 
     $(function() {
         $( "input:submit, a, button", ".page" ).button();
